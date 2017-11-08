@@ -46,11 +46,24 @@ public class ClassModel extends ApexModel {
         @SuppressWarnings("unchecked")
 		List<MethodModel> sorted = (List<MethodModel>)methods.clone();
         Collections.sort(sorted, new Comparator<MethodModel>(){
-            @Override
             public int compare(MethodModel o1, MethodModel o2) {
-                String methodName1 = o1.getMethodName();
+                
+            	if(o1 == null || o2 == null) {
+            		System.out.println(o1);
+            		System.out.println(o2);
+            	}
+            
+            	String methodName1 = o1.getMethodName();
                 String methodName2 = o2.getMethodName();
                 String className = getClassName();
+                
+                if(methodName1 == null) {
+                	methodName1 = "noname";
+                }
+                
+                if(methodName2 == null) {
+                	methodName2 = "noname";
+                }
                 
                 if(methodName1.equals(className)){
                     return Integer.MIN_VALUE;

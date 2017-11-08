@@ -57,6 +57,10 @@ public class ApexDoc {
         String authorfilepath = "";
         String hostedSourceURL = "";
 
+        for(String arg: args){
+        	System.out.println(arg);
+        }
+        
         // parse command line parameters
         for (int i = 0; i < args.length; i++) {
 
@@ -81,6 +85,8 @@ public class ApexDoc {
             }
         }
 
+        System.out.println("the source directory: "+sourceDirectory);
+        
         // default scope to global and public if not specified
         if (rgstrScope == null || rgstrScope.length == 0) {
             rgstrScope = new String[3];
@@ -103,6 +109,9 @@ public class ApexDoc {
         // parse each file, creating a class model for it
         for (File fromFile : files) {
             String fromFileName = fromFile.getAbsolutePath();
+            
+            System.out.println(fromFileName);
+            
             if (fromFileName.endsWith(".cls")) {
                 ClassModel cModel = parseFileContents(fromFileName);
                 if (cModel != null) {
@@ -339,7 +348,7 @@ public class ApexDoc {
             // we only want to return the parent class
             return cModelParent;
         } catch (Exception e) { // Catch exception if any
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("Parsing failed error: " + e.getMessage());
         }
 
         return null;
