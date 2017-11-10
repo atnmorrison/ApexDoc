@@ -89,10 +89,12 @@ public class ApexDoc {
         
         // default scope to global and public if not specified
         if (rgstrScope == null || rgstrScope.length == 0) {
-            rgstrScope = new String[3];
+            rgstrScope = new String[5];
             rgstrScope[0] = "global";
             rgstrScope[1] = "public";
             rgstrScope[2] = "webService";
+            rgstrScope[3] = "private";
+            rgstrScope[4] = "protected";
         }
 
         // find all the files to parse
@@ -114,7 +116,7 @@ public class ApexDoc {
             
             if (fromFileName.endsWith(".cls")) {
                 ClassModel cModel = parseFileContents(fromFileName);
-                if (cModel != null) {
+                if (cModel != null && cModel.getClassGroup() != null && cModel.getClassGroup() != "Miscellaneous") {
                     cModels.add(cModel);
                 }
             }

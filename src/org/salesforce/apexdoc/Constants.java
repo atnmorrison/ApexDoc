@@ -26,12 +26,10 @@ public class Constants {
         "<div class='topsection'>" +
         "<table>" +
         "<tr><td>" +
-        "<img src='apex_doc_logo.png' style='border:1px solid #000;'/>" +
+        "<img src='logo.png' style='border: none;'/>" +
         "</td>" +
         "<td>" +                
-        "<h2 style='margin:0px;'>Project Demo</h2>" +
-        "Check out the gitHub project at:<br/>" + 
-        "<a href='http://github.com/SalesforceFoundation/ApexDoc'>http://github.com/SalesforceFoundation/ApexDoc</a><br/>";
+        "<h2 style='margin:0px;'>Partner Link Apex Doc</h2>";
 
     public static String getHeader(String projectDetail) {
         String header;

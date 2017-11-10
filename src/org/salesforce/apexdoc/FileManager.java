@@ -402,6 +402,7 @@ public class FileManager {
 
     private void copy(String toFileName) throws IOException, Exception {
         docopy("apex_doc_logo.png", toFileName);
+        docopy("logo.png", toFileName);
         docopy("ApexDoc.css", toFileName);
         docopy("ApexDoc.js", toFileName);
         docopy("CollapsibleList.js", toFileName);
